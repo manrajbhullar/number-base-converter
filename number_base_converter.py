@@ -6,6 +6,9 @@ def to_decimal(num: str, base: int) -> str:
     if base < 2 or base > 16:
         raise ValueError(f"Invalid Base Value: {base}. Must be between 2-16.")
     
+    if int(num) == 0:
+        return "0"
+    
     num_digits = len(num)
     decimal = 0
     for i in range(num_digits):
@@ -31,6 +34,9 @@ def from_decimal(num: str, target_base: int) -> str:
         raise ValueError(f"Invalid Target Base Value: {target_base}. Must be between 2-16.")
     if num.isnumeric() == 0:
         raise ValueError(f"Invalid Number Value: {num}. Must be base 10 decimal number.")
+    
+    if int(num) == 0:
+        return "0"
     
     remainders = []
     current_floor = int(num)
